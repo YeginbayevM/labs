@@ -15,9 +15,9 @@ def compiles():
 
 
 @check50.check(compiles)
-def harry():
-    """Input of \"Harry\" and \"Godrick's Hollow\" produces output \"Hello, Harry, from Godrick's Hollow!\""""
-    check_debug(name="Harry", place="Godrick's Hollow")
+def frodo():
+    """Input of \"Frodo\" and \"Shire\" produces output \"Hello, Frodo, from Shire!\""""
+    check_debug(name="Frodo", place="Shire")
 
 
 @check50.check(compiles)
