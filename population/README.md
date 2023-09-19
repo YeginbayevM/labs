@@ -84,8 +84,3 @@ End size: 1000000
 Years: 115
 ```
 
-{% next %}
-
-## How to Submit
-
-TODO
