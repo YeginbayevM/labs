@@ -4,19 +4,19 @@ from re import findall
 
 @check50.check()
 def exists():
-    """answers.txt exists"""
+    """answers.txt существует"""
     check50.exists("answers.txt")
 
 @check50.check(exists)
 def answers():
-    """answers all questions"""
+    """отвечены все вопросы"""
     content = open("answers.txt", "r").read()
     if "TODO" in content:
         raise check50.Failure("Not all questions answered.")
 
 @check50.check(exists)
 def sorts():
-    """correctly identifies each sort"""
+    """корректно распознаётся каждый тип сортировки"""
 
     check50.log("checking that sorts are classified correctly...")
 
