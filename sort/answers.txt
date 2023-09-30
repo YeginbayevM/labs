@@ -1,11 +1,11 @@
-sort1 uses: TODO
+sort1 использует: TODO
 
-How do you know?: TODO
+Ответьте, почему? какие признаки?: TODO
 
-sort2 uses: TODO
+sort2 использует: TODO
 
-How do you know?: TODO
+Ответьте, почему? какие признаки?: TODO
 
-sort3 uses: TODO
+sort3 использует: TODO
 
-How do you know?: TODO
+Ответьте, почему? какие признаки?: TODO
