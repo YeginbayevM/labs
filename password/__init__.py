@@ -4,43 +4,43 @@ import check50.c
 
 @check50.check()
 def exists():
-    """password.c exists"""
+    """password.c существует."""
     check50.exists("password.c")
 
 
 @check50.check(exists)
 def compiles():
-    """password.c compiles"""
+    """password.c компилируется."""
     check50.c.compile("password.c", lcs50=True)
 
 
 @check50.check(compiles)
 def valid():
-    """Password of 3PQvbQ6_GvneW!3R is accepted."""
+    """Пароль 3PQvbQ6_GvneW!3R действителен."""
     check_password(password="3PQvbQ6_GvneW!3R", valid=True)
 
 
 @check50.check(compiles)
 def no_uppercase():
-    """Password of hqsk3wb. is rejected for lack of uppercase characters."""
+    """Пароль hqsk3wb. не действителен из-за отсутствия заглавного символа."""
     check_password(password="hqsk3wb.", valid=False)
 
 
 @check50.check(compiles)
 def no_lowercase():
-    """Password of F-WH8PQP is rejected for lack of lowercase characters."""
+    """Пароль F-WH8PQP не действителен из-за отсутствия строчного символа."""
     check_password(password="F-WH8PQP", valid=False)
 
 
 @check50.check(compiles)
 def no_symbol():
-    """Password of VnrHMtV4 is rejected for lack of symbols."""
+    """Пароль VnrHMtV4 не действителен из-за отсутствия печатываемого символа (не буква и не цифра)."""
     check_password(password="VnrHMtV4", valid=False)
 
 
 @check50.check(compiles)
 def no_number():
-    """Password of iWnktW*q is rejected for lack of numbers."""
+    """Пароль iWnktW*q не действителен из-за отсутствия чисел."""
     check_password(password="iWnktW*q", valid=False)
 
 
@@ -48,6 +48,6 @@ def no_number():
 def check_password(password: str, valid: bool):
     program = check50.run("./password").stdin(password)
     if valid:
-        program.stdout("Your password is valid!")
+        program.stdout("Ваш пароль действителен!")
     else:
-        program.stdout("Your password needs at least one uppercase letter, lowercase letter, number and symbol")
+        program.stdout("В вашем пароле должна быть по крайней мере одна заглавная буква, строчная буква, цифра и символ!")
