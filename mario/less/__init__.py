@@ -41,4 +41,4 @@ def check_pyramid(output, correct):
         elif all(ol[1:] == cl for ol, cl in zip(output, correct)):
             help = "are you printing an additional character at the beginning of each line?"
 
-    raise check50.Mismatch(correct, output, help=help) 1
+    raise check50.Mismatch(correct, output, help=help)
