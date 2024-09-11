@@ -16,20 +16,20 @@ def compiles():
 
 
 @check50.check(compiles)
-def mario():
-    """отвечает на имя Mario"""
+def miras():
+    """отвечает на имя Мирас"""
     check_name("Mario")
 
 
 @check50.check(compiles)
-def peach():
-    """responds to name Peach"""
+def lucas():
+    """отвечает на имя Лукас"""
     check_name("Peach")
 
 
 @check50.check(compiles)
-def bowser():
-    """responds to name Bowser"""
+def vladislav():
+    """отвечает на имя Владислав"""
     check_name("Bowser")
 
 
