@@ -53,7 +53,7 @@ def test_reject_foo():
 
 @check50.check(compiles)
 def test_reject_empty():
-    """отклоняет нечисловую высоту \"\"" """  # "rejects a non-numeric height of "" "
+    """отклоняет нечисловую высоту "" """  # "rejects a non-numeric height of "" "
     check50.run("./mario").stdin("").reject()
 
 
