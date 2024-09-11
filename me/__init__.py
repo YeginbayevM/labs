@@ -17,20 +17,20 @@ def compiles():
 
 @check50.check(compiles)
 def mario():
-    """отвечает на имя Miras"""
-    check_name("Miras")
+    """отвечает на имя Mario"""
+    check_name("Mario")
 
 
 @check50.check(compiles)
 def peach():
-    """responds to name Egghead"""
-    check_name("Egghead")
+    """responds to name Peach"""
+    check_name("Peach")
 
 
 @check50.check(compiles)
 def bowser():
-    """responds to name Lucas"""
-    check_name("Lucas")
+    """responds to name Bowser"""
+    check_name("Bowser")
 
 
 def check_name(name):
