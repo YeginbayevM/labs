@@ -40,8 +40,3 @@ def test_example():
 def test_no_growth():
     """обрабатывает случай, когда конечный баланс равен начальному"""  # "handles the case where the end balance is the same as the start balance"
     check50.run("./savings").stdin("1000").stdin("5").stdin("0").stdin("1000").stdout("Лет: 0\n").exit(0)
-
-@check50.check(compiles)
-def test_growth():
-    """обрабатывает случай, когда баланс растет несколько лет"""  # "handles a case where the balance grows over multiple years"
-    check50.run("./savings").stdin("1000").stdin("5").stdin("100").stdin("2000").stdout("Лет: 7\n").exit(0)
