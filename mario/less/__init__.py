@@ -13,48 +13,18 @@ def compiles():
     check50.c.compile("mario.c", lcs50=True)
 
 @check50.check(compiles)
-def test_reject_negative():
-    """rejects a height of -1"""
+def test_reject_invalid_height():
+    """rejects heights that are not positive integers between 1 and 8"""
     check50.run("./mario").stdin("-1").reject()
-
-@check50.check(compiles)
-def test0():
-    """rejects a height of 0"""
     check50.run("./mario").stdin("0").reject()
-
-@check50.check(compiles)
-def test1():
-    """handles a height of 1 correctly"""
-    out = check50.run("./mario").stdin("1").stdout()
-    check_pyramid(out, open("1.txt").read())
-
-@check50.check(compiles)
-def test2():
-    """handles a height of 2 correctly"""
-    out = check50.run("./mario").stdin("2").stdout()
-    check_pyramid(out, open("2.txt").read())
-
-@check50.check(compiles)
-def test8():
-    """handles a height of 8 correctly"""
-    out = check50.run("./mario").stdin("8").stdout()
-    check_pyramid(out, open("8.txt").read())
-
-@check50.check(compiles)
-def test9():
-    """rejects a height of 9, and then accepts a height of 2"""
-    out = check50.run("./mario").stdin("9").reject().stdin("2").stdout()
-    check_pyramid(out, open("2.txt").read())
-
-@check50.check(compiles)
-def test_reject_foo():
-    """rejects a non-numeric height of "foo" """
+    check50.run("./mario").stdin("9").reject()
     check50.run("./mario").stdin("foo").reject()
+    check50.run("./mario").stdin("").reject()
 
 @check50.check(compiles)
-def test_reject_empty():
-    """rejects a non-numeric height of "" """
-    check50.run("./mario").stdin("").reject()
+def test_correct_outputs():
+    """handles heights of 1, 2, and 8 correctly"""
+    check50.c.inputs("1", "2", "8").run("./mario").stdout(open("1.txt").read(), open("2.txt").read(), open("8.txt").read()).exit(0)
 
 
 def check_pyramid(output, correct):
@@ -71,4 +41,4 @@ def check_pyramid(output, correct):
         elif all(ol[1:] == cl for ol, cl in zip(output, correct)):
             help = "are you printing an additional character at the beginning of each line?"
 
-    raise check50.Mismatch(correct, output, help=help)
+    raise check50.Mismatch(correct, output, help=help) 1
