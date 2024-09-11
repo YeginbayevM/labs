@@ -54,5 +54,5 @@ def check_name(name):
         raise check50.Mismatch(expected=expected, actual=actual)
 
 
-def regex(string):
-    return f"^([Пп]ривет|[Hh]ello), {re.escape(string)}\n$"
+    def regex(string):
+    return f"^Hh]ello, {re.escape(string)}\n$" 
