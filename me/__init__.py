@@ -18,19 +18,19 @@ def compiles():
 @check50.check(compiles)
 def miras():
     """отвечает на имя Мирас"""
-    check_name("Mario")
+    check_name("Мирас")
 
 
 @check50.check(compiles)
 def lucas():
     """отвечает на имя Лукас"""
-    check_name("Peach")
+    check_name("Лукас")
 
 
 @check50.check(compiles)
 def vladislav():
     """отвечает на имя Владислав"""
-    check_name("Bowser")
+    check_name("Владислав")
 
 
 def check_name(name):
