@@ -5,7 +5,7 @@ import check50.c
 def exists():
     """mario.c exists"""
     check50.exists("mario.c")
-    check50.include("1.txt", "2.txt", "8.txt")
+    check50.include("1.txt", "2.txt", "8.txt", "12.txt")
 
 @check50.check(exists)
 def compiles():
@@ -13,18 +13,48 @@ def compiles():
     check50.c.compile("mario.c", lcs50=True)
 
 @check50.check(compiles)
-def test_reject_invalid_height():
-    """rejects heights that are not positive integers between 1 and 8"""
+def test_reject_negative():
+    """rejects a height of -1"""
     check50.run("./mario").stdin("-1").reject()
-    check50.run("./mario").stdin("0").reject()
-    check50.run("./mario").stdin("9").reject()
-    check50.run("./mario").stdin("foo").reject()
-    check50.run("./mario").stdin("").reject()
 
 @check50.check(compiles)
-def test_correct_outputs():
-    """handles heights of 1, 2, and 8 correctly"""
-    check50.c.inputs("1", "2", "8").run("./mario").stdout(open("1.txt").read(), open("2.txt").read(), open("8.txt").read()).exit(0)
+def test0():
+    """rejects a height of 0"""
+    check50.run("./mario").stdin("0").reject()
+
+@check50.check(compiles)
+def test1():
+    """handles a height of 1 correctly"""
+    out = check50.run("./mario").stdin("1").stdout()
+    check_pyramid(out, open("1.txt").read())
+
+@check50.check(compiles)
+def test2():
+    """handles a height of 2 correctly"""
+    out = check50.run("./mario").stdin("2").stdout()
+    check_pyramid(out, open("2.txt").read())
+
+@check50.check(compiles)
+def test8():
+    """handles a height of 8 correctly"""
+    out = check50.run("./mario").stdin("8").stdout()
+    check_pyramid(out, open("8.txt").read())
+
+@check50.check(compiles)
+def test9():
+    """rejects a height of -1, and then accepts a height of 2"""
+    out = check50.run("./mario").stdin("-1").reject().stdin("2").stdout()
+    check_pyramid(out, open("2.txt").read())
+
+@check50.check(compiles)
+def test_reject_foo():
+    """rejects a non-numeric height of "foo" """
+    check50.run("./mario").stdin("foo").reject()
+
+@check50.check(compiles)
+def test_reject_empty():
+    """rejects a non-numeric height of "" """
+    check50.run("./mario").stdin("").reject()
 
 
 def check_pyramid(output, correct):
