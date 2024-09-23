@@ -1,0 +1,7 @@
+check50:
+  files: &check50_files
+    - !exclude "*" # Исключаем все файлы по умолчанию
+    - !require travel_expenses.c # Требуем только файл travel_expenses.c
+
+submit50:
+  files: *check50_files # Используем тот же набор файлов для отправки
