@@ -49,7 +49,7 @@ def test5():
 @check50.check(compiles)
 def test6():
     """слово 'pig' верно учитывается и преобладает над словом 'dog'"""
-    check50.run("./scrabble").stdin("pig").stdin("dog").stdout("[Pp]layer 1 [Ww]ins!?", "Player 1 wins!").exit(0)
+    check50.run("./scrabble").stdin("1").stdin("pig").stdin("dog").stdout("[Pp]layer 1 [Ww]ins!?", "Player 1 wins!").exit(0)
 
 @check50.check(compiles)
 def complex_case():
