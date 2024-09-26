@@ -18,13 +18,13 @@ def test_sorting():
 
 The Shawshank Redemption: 9.3
 The Godfather: 9.2
-The Dark Knight: 9.0
 Schindler's List: 9.0
+The Dark Knight: 9.0
 The Lord of the Rings: The Return of the King: 8.9
 Pulp Fiction: 8.9
-The Good, the Bad and the Ugly: 8.8
 Forrest Gump: 8.8
 Inception: 8.8
+The Good, the Bad and the Ugly: 8.8
 The Empire Strikes Back: 8.7
 La La Land: 8.3
 Jumanji: 7.3
