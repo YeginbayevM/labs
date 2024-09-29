@@ -35,6 +35,5 @@ def average_5_days():
 def check_expenses(type: str, data: list, expected: str):
     program = check50.run("./travel_expenses").stdin(str(len(data)))
     for i, expense in enumerate(data):
-        # Обратите внимание, что мы начинаем нумерацию дней с 1
-        program.stdin(str(expense)).stdout(f"Расходы за день {i}: ") 
+        program.stdin(str(expense)).stdout(f"Расходы за день {i}: ")  # Изменено здесь
     program.stdin(type).stdout(expected)
