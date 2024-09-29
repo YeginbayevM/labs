@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include <string.h>
 
-// Максимальное число кандидатов
+// Максимальное количество кандидатов
 #define MAX 9
 
-// У кандидатов есть имя и подсчёт голосов
+// Кандидаты имеют имя и количество голосов
 typedef struct
 {
     string name;
@@ -16,19 +16,19 @@ candidate;
 // Массив кандидатов
 candidate candidates[MAX];
 
-// Число кандидатов
+// Количество кандидатов
 int candidate_count;
 
-//Прототипы функций
+// Прототипы функций
 bool vote(string name);
 void print_winner(void);
 
 int main(int argc, string argv[])
 {
-    // Провервка на недопустимое использование
+    // Проверка на некорректное использование
     if (argc < 2)
     {
-        printf("Usage: plurality [candidate ...]\n");
+        printf("Запустите так: ./plurality [Кандидат_1 ...]\n");
         return 1;
     }
 
@@ -36,7 +36,7 @@ int main(int argc, string argv[])
     candidate_count = argc - 1;
     if (candidate_count > MAX)
     {
-        printf("Maximum number of candidates is %i\n", MAX);
+        printf("Максимальное количество кандидатов – %i\n", MAX);
         return 2;
     }
     for (int i = 0; i < candidate_count; i++)
@@ -45,17 +45,17 @@ int main(int argc, string argv[])
         candidates[i].votes = 0;
     }
 
-    int voter_count = get_int("Number of voters: ");
+    int voter_count = get_int("Введите количество избирателей: ");
 
-    // Перебор всех избирателей
+    // Цикл по всем избирателям
     for (int i = 0; i < voter_count; i++)
     {
-        string name = get_string("Vote: ");
+        string name = get_string("Введите голос: ");
 
-        // Проверка на недействительность голосования
+        // Проверка на некорректный голос
         if (!vote(name))
         {
-            printf("Invalid vote.\n");
+            printf("Некорректный голос.\n");
         }
     }
 
@@ -63,16 +63,19 @@ int main(int argc, string argv[])
     print_winner();
 }
 
-// Обновление итогового результата голосования с учётом нового голоса
+// Обновление общего количества голосов с учетом нового голоса
 bool vote(string name)
 {
-    // TODO
+    // TODO: Проверить, существует ли кандидат с именем name.
+    // Если да, увеличить количество голосов этого кандидата на 1 и вернуть true.
+    // В противном случае вернуть false.
     return false;
 }
 
-// Вывод победителя или победителей выборов
+// Вывод победителя (или победителей) выборов
 void print_winner(void)
 {
-    // TODO
+    // TODO: Найти кандидата с наибольшим количеством голосов.
+    // Вывести имя этого кандидата и вернуть значение.
     return;
 }
