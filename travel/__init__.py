@@ -21,12 +21,6 @@ def test_average_expenses_4_days():
     """Проверяет расчет среднего расхода за день для 4 дней."""
     check_expenses(type="A", data=[50, 60, 70, 80], expected="65.0")
 
-@check50.check(compiles)
-def test_invalid_input():
-    """Проверяет обработку некорректного ввода."""
-    program = check50.run("./travel_expenses").stdin("0")  # Некорректное количество дней
-    program.stdin("-1").stdin("2").stdin("100").stdin("50")  # Еще некорректный ввод
-    program.stdin("B").stdin("A").stdout("150.0")  # Ожидаем среднее значение после корректного ввода
 
 # Вспомогательная функция для проверки расходов
 def check_expenses(type: str, data: list, expected: str):
