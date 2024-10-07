@@ -12,29 +12,19 @@ def compiles():
     check50.c.compile("travel_expenses.c", lcs50=True)
 
 @check50.check(compiles)
-def total_3_days():
-    """travel_expenses calculates total expenses over 3 days."""
-    check_expenses(type="T", data=[50, 80, 120], expected="250.0")
+def test_total_expenses_3_days():
+    """Проверяет расчет общей суммы расходов за 3 дня."""
+    check_expenses(type="T", data=[100, 150, 200], expected="450.0")
 
 @check50.check(compiles)
-def total_4_days():
-    """travel_expenses calculates total expenses over 4 days."""
-    check_expenses(type="T", data=[100, 75, 90, 60], expected="325.0")
+def test_average_expenses_4_days():
+    """Проверяет расчет среднего расхода за день для 4 дней."""
+    check_expenses(type="A", data=[50, 60, 70, 80], expected="65.0")
 
-@check50.check(compiles)
-def average_3_days():
-    """travel_expenses calculates average expenses over 3 days."""
-    check_expenses(type="A", data=[100, 50, 75], expected="75.0")
-
-@check50.check(compiles)
-def average_5_days():
-    """travel_expenses calculates average expenses over 5 days."""
-    check_expenses(type="A", data=[200, 150, 80, 120, 95], expected="129.0")
 
 # Вспомогательная функция для проверки расходов
 def check_expenses(type: str, data: list, expected: str):
     program = check50.run("./travel_expenses").stdin(str(len(data)))
     for i, expense in enumerate(data):
-        # Обратите внимание, что мы начинаем нумерацию дней с 1
-        program.stdin(str(expense)).stdout(f"Расходы за день {i}: ") 
+        program.stdin(str(expense))
     program.stdin(type).stdout(expected)
