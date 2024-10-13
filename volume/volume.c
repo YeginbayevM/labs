@@ -1,42 +1,43 @@
-// Программа на изменение громкости аудиофайла
+// Изменяет громкость аудиофайла
+
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-// Количество байт в заголовке файла .wav
+// Размер заголовка файла .wav в байтах
 const int HEADER_SIZE = 44;
 
 int main(int argc, char *argv[])
 {
-    // Проверить наличие аргументов командной строки
+    // Проверка аргументов командной строки
     if (argc != 4)
     {
-        printf("Usage: ./volume input.wav output.wav factor\n");
+        printf("Использование: ./volume input.wav output.wav factor\n");
         return 1;
     }
 
-    // Открыть файл и определить коэффициент масштабирования
+    // Открытие файлов и определение коэффициента масштабирования
     FILE *input = fopen(argv[1], "r");
     if (input == NULL)
     {
-        printf("Could not open file.\n");
+        printf("Не удалось открыть файл.\n");
         return 1;
     }
 
     FILE *output = fopen(argv[2], "w");
     if (output == NULL)
     {
-        printf("Could not open file.\n");
+        printf("Не удалось открыть файл.\n");
         return 1;
     }
 
     float factor = atof(argv[3]);
 
-    // TODO: Скопировать заголовок входного файла в выходной файл
+    // TODO: Скопировать заголовок из входного файла в выходной файл
 
-    // TODO: Считать данные сэмпла из входного файла и записать обновлённые данные в выходной файл
+    // TODO: Прочитать сэмплы из входного файла и записать обновленные данные в выходной файл
 
-    // Закрыть файл
+    // Закрытие файлов
     fclose(input);
     fclose(output);
 }

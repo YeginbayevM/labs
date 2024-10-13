@@ -19,19 +19,19 @@ def audio_half():
     """громкость звука корректно уменьшается в 0.5 раза"""
     check50.run("./volume input.wav output.wav 0.5").exit(0)
     if check50.hash("output.wav") != HASHES[0]:
-        raise check50.Failure("audio is not correctly altered, factor of 0.5")
+        raise check50.Failure("Изменение громкости аудио не было выполнено корректно. Примененный коэффициент: 0.5")
 
 @check50.check(compiles)
 def audio_tenth():
     """громкость звука корректно уменьшается в 0.1 раза"""
     check50.run("./volume input.wav output.wav 0.1").exit(0)
     if check50.hash("output.wav") != HASHES[1]:
-        raise check50.Failure("audio is not correctly altered, factor of 0.1")
+        raise check50.Failure("Изменение громкости аудио не было выполнено корректно. Примененный коэффициент: 0.1")
 
 @check50.check(compiles)
 def audio_x2():
     """громкость звука корректно увеличивается в 2 раза"""
     check50.run("./volume input.wav output.wav 2").exit(0)
     if check50.hash("output.wav") != HASHES[2]:
-        raise check50.Failure("audio is not correctly altered, factor of 2")
+        raise check50.Failure("Изменение громкости аудио не было выполнено корректно. Примененный коэффициент: 2")
 
